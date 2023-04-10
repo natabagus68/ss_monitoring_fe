@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function useAdmin() {
@@ -9,6 +9,10 @@ export default function useAdmin() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(true);
   //avatar status
   const [isOpenAvatar, setIsOpenavatar] = useState(false);
+  // setup me
+  const [isMe, setIsMe] = useState(false);
+  // loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   //navbar status click
   const onOpenNavbar = (): void => {
@@ -28,21 +32,47 @@ export default function useAdmin() {
   //set navigate navbar
   const setNavigate = (url: string): void => {
     navigate(url);
-  }
+  };
 
   //on logout
-  const onLogout = (): void => {
-    navigate("../login", { replace: true })
-  }
+  const onLogout = async(): Promise<void> => {
+    try {
+      await localStorage.removeItem("web-admin");
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //checking me
+  const onIsMe = async (): Promise<void> => {
+    setIsLoading(true);
+    const localStorageData = await JSON.parse(
+      localStorage.getItem("web-admin")
+    );
+    setTimeout(() => {
+      setIsLoading(false);
+      if (!localStorageData?.token) {
+        navigate("../login");
+      } else {
+        navigate("../admin/dashboard/general");
+      }
+    }, 500);
+  };
+
+  useEffect(() => {
+    onIsMe();
+  }, []);
 
   return {
     isOpenNavbar,
     isOpenSidebar,
     isOpenAvatar,
+    isLoading,
     onOpenNavbar,
     onOpenSideBar,
     setNavigate,
     onOpenAvatar,
-    onLogout
+    onLogout,
   };
 }

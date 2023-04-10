@@ -1,6 +1,5 @@
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { Error404 } from "../common/components";
-import { config } from "../common/utils";
 import LoginView from "@features/auth/login-view";
 import GeneralView from "@features/admin/dashboard/general/general-view";
 import AdminLayout from "@features/admin/admin-layout/admin-layout";
@@ -14,7 +13,7 @@ const Root = () => {
 export default createBrowserRouter([
   {
     path: "",
-    element: <Navigate to={`login`} />,
+    element: <Navigate to="../admin" />,
   },
   {
     path: "login",

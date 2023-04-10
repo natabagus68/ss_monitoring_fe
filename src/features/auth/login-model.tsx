@@ -12,10 +12,18 @@ export default function useLogin() {
   };
 
   //button login
-  const onSubmitLogin = (e) => {
+  const onSubmitLogin = async (e): Promise<void> => {
     e.preventDefault();
-    console.log(e.target.email.value, e.target.password.value);
-    navigate("../admin/dashboard");
+    try {
+      console.log(e.target.email.value, e.target.password.value);
+      await localStorage.setItem(
+        "web-admin",
+        JSON.stringify({ token: "token-12345678" })
+      );
+      navigate("../admin/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return {
     isPasswordShow,

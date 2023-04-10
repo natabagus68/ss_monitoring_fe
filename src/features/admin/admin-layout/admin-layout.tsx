@@ -7,10 +7,15 @@ import ChevronIcon from "@common/components/icons-new/ChevronIcon";
 import useAdmin from "./admin-layout-model";
 import LogoutIcon from "@common/components/icons-new/LogoutIcon";
 import { NavItem } from "@common/components";
+import LoadingIcon from "@common/components/icons-new/LoadingIcon";
 
 export default function AdminLayout() {
   const admin = useAdmin();
-  return (
+  return admin.isLoading ? (
+    <main className="w-screen h-screen flex bg-gray-200 items-center justify-center">
+      <LoadingIcon className="animate-spin w-[80px] h-[80px]" />
+    </main>
+  ) : (
     <main className="relative">
       <header
         className={`${
@@ -36,7 +41,7 @@ export default function AdminLayout() {
           <div
             className={`${
               admin.isOpenAvatar ? "flex" : "hidden"
-            } absolute top-[35px] bg-white rounded-md overflow-hidden right-0 flex-col gap-2 min-w-[180px]`}
+            } absolute top-[35px] bg-white rounded-md overflow-hidden right-0 flex-col gap-2 min-w-[190px] border border-gray-400`}
             onMouseLeave={() => admin.onOpenAvatar()}
           >
             <div
