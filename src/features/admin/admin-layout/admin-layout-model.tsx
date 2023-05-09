@@ -9,8 +9,6 @@ export default function useAdmin() {
   const [isOpenSidebar, setIsOpenSidebar] = useState(true);
   //avatar status
   const [isOpenAvatar, setIsOpenavatar] = useState(false);
-  // setup me
-  const [isMe, setIsMe] = useState(false);
   // loading state
   const [isLoading, setIsLoading] = useState(true);
 
@@ -28,6 +26,11 @@ export default function useAdmin() {
   const onOpenAvatar = (): void => {
     setIsOpenavatar(!!!isOpenAvatar);
   };
+
+  //click traceability button
+  const onOpenTraceability = (): void => {
+    navigate(`../admin/traceability`);
+  }
 
   //set navigate navbar
   const setNavigate = (url: string): void => {
@@ -54,9 +57,10 @@ export default function useAdmin() {
       setIsLoading(false);
       if (!localStorageData?.token) {
         navigate("../login");
-      } else {
-        navigate("../admin/dashboard/general");
-      }
+      } 
+      // else {
+      //   navigate(`../${window.location.pathname}`);
+      // }
     }, 500);
   };
 
@@ -74,5 +78,6 @@ export default function useAdmin() {
     setNavigate,
     onOpenAvatar,
     onLogout,
+    onOpenTraceability
   };
 }

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import logo_astra from "../../../assets/logo-astra.svg";
+import my_logo from "../../../assets/my-logo.svg";
 import FullscreenIcon from "@common/components/icons-new/FullscreenIcon";
 import BurgerIcon from "@common/components/icons-new/BurgerIcon";
 import DashboardIcon from "@common/components/icons-new/DashboardIcon";
@@ -8,6 +8,8 @@ import useAdmin from "./admin-layout-model";
 import LogoutIcon from "@common/components/icons-new/LogoutIcon";
 import { NavItem } from "@common/components";
 import LoadingIcon from "@common/components/icons-new/LoadingIcon";
+import SearchIcon from "@common/components/icons-new/SearchIcon";
+import MasterDataIcon from "@common/components/icons-new/MasterDataIcon";
 
 export default function AdminLayout() {
   const admin = useAdmin();
@@ -19,15 +21,21 @@ export default function AdminLayout() {
     <main className="relative">
       <header
         className={`${
-          admin.isOpenSidebar ? null : "pl-[25px]"
-        } fixed w-full h-[70px] bg-[#2BBA23] shadow-lg z-50 flex items-center justify-between pl-[265px] pr-[25px] transition-all ease-in-out delay-100`}
+          admin.isOpenSidebar ? "pl-[265px]" : "pl-[25px]"
+        } fixed w-full h-[70px] bg-[#20519F] shadow-lg z-50 flex items-center justify-between pr-[25px] transition-all ease-in-out delay-100`}
       >
         <div className="flex gap-6 items-center">
           <BurgerIcon
             className="cursor-pointer"
             onClick={() => admin.onOpenSideBar()}
           />
-          <FullscreenIcon className="cursor-pointer w-[24px] h-[24px]" />
+          <button
+            className="px-[20px] gap-2 h-[46px] rounded-md bg-[#4D74B2] text-white flex items-center"
+            onClick={() => admin.onOpenTraceability()}
+          >
+            <SearchIcon />
+            <span>Traceability</span>
+          </button>
         </div>
         <div className="relative">
           <div
@@ -54,21 +62,13 @@ export default function AdminLayout() {
           </div>
         </div>
       </header>
-      <footer
-        className={`${
-          admin.isOpenSidebar ? null : "pl-[25px]"
-        } fixed w-full h-[40px] bottom-0 pl-[265px] pr-[25px] flex items-center gap-2 bg-white z-50 shadow-[-1px_-5px_26px_-1px_rgba(0,0,0,0.1)] transition-all ease-in-out delay-100`}
-      >
-        <span className="text-[#8A8A8A] font-medium">Copyright © 2022</span>
-        <span className="text-[#1B4AF0] font-medium">RAGDALION</span>
-      </footer>
       <div
         className={`${
           admin.isOpenSidebar ? null : "-translate-x-[240px]"
         } fixed w-[240px] h-full bg-white shadow-lg z-50 flex flex-col gap-[20px] transition-all ease-in-out delay-100`}
       >
         <div className="w-full h-[70px] shadow-sm flex items-center justify-center">
-          <img src={logo_astra} alt="Logo Ragdalion" className="w-[168.98px]" />
+          <img src={my_logo} alt="Logo Ragdalion" className="h-[50px]" />
         </div>
         <div className="flex flex-col px-4 gap-[12px]">
           <span className="font-semibold text-[#5C5C5C]">Menu</span>
@@ -81,13 +81,20 @@ export default function AdminLayout() {
               <NavItem label="Details" to={"dashboard/details"} />
               <NavItem label="Real Time" to={"dashboard/real-time"} />
             </NavItem>
+            <NavItem
+              label={`Master Data`}
+              icon={<MasterDataIcon className="w-[24px] h-[24px]" />}
+            >
+              <NavItem label="Manpower" to={"master-data/manpower/manpower"} />
+              <NavItem label="Mesin" to={"master-data/mesin/mesin"} />
+            </NavItem>
           </div>
         </div>
       </div>
       <div
         className={`${
-          admin.isOpenSidebar ? null : "pl-[25px]"
-        } flex-1 pl-[265px] pt-[95px] p-[25px] pb-[65px] transition-all ease-in-out delay-100`}
+          admin.isOpenSidebar ? "pl-[265px]" : "pl-[25px]"
+        } flex-1 pt-[95px] p-[25px] transition-all ease-in-out delay-100`}
       >
         <Outlet />
       </div>

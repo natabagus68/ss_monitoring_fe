@@ -1,4 +1,4 @@
-export default function LoadingIcon({...props}) {
+export default function LoadingIcon({color = "black", ...props }) {
   return (
     <svg
       width="800px"
@@ -8,7 +8,7 @@ export default function LoadingIcon({...props}) {
       fill="none"
       {...props}
     >
-      <g fill="#000000" fillRule="evenodd" clipRule="evenodd">
+      <g fill={color} fillRule="evenodd" clipRule="evenodd">
         <path
           d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"
           opacity=".2"

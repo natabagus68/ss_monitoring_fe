@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: openSans, sans-serif;
+  * {
+    font-family: "Open Sans", sans-serif;
   }
 }

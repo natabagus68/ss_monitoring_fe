@@ -3,16 +3,13 @@ import FullscreenIcon from "@common/components/icons-new/FullscreenIcon";
 import MinimizeIcon from "@common/components/icons-new/MinimizeIcon";
 import speedo from "../../../../assets/speedo.png";
 import ArrowUpIcon from "@common/components/icons-new/ArrowUpIcon";
-import { Toggle } from "@common/components";
+import { Breadcrumbs, Toggle } from "@common/components";
 import ChartSemiCircle from "@common/components/charts/ChartSemiCircle";
 
 export default function GeneralView() {
   return (
     <main className="flex flex-col gap-[28px] justify-between">
-      <div className="flex justify-between">
-        <div>Menu / Dashboard / General</div>
-        <div>01:50 - 20 April 2022</div>
-      </div>
+      <Breadcrumbs items={["General"]} />
       <div className="w-full h-[266px] flex gap-[28px]">
         <div className="flex flex-col w-full flex-1 p-6 bg-white shadow-md rounded-xl overflow-hidden gap-4">
           <div className="flex flex-col">

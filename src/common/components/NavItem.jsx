@@ -18,9 +18,9 @@ export const NavItem = ({
           to={to}
           onClick={() => setOpen(!!!open)}
           className={({ isActive }) =>
-            `flex items-center cursor-pointer gap-3 h-[37px] rounded-md px-2 hover:bg-[#E6FFE2]
+            `flex items-center cursor-pointer gap-3 h-[37px] rounded-md px-2 hover:text-[#20519F]
            ${
-             (isActive && to !== null) || active === true ? "bg-[#E6FFE2]" : ""
+             (isActive && to !== null) || active === true ? "text-[#20519F]" : ""
            }`
           }
         >
@@ -36,8 +36,8 @@ export const NavItem = ({
         <button
           to={to}
           onClick={() => setOpen(!!!open)}
-          className={`flex items-center cursor-pointer gap-3 w-full h-[37px] rounded-md px-2 hover:text-[#28B411] ${
-            open || active ? "text-[#28B411]" : ""
+          className={`flex items-center cursor-pointer gap-3 w-full h-[37px] rounded-md px-2 hover:bg-[#E9EEF5] hover:text-[#20519F] ${
+            open || active ? "text-[#20519F] bg-[#E9EEF5]" : ""
           }`}
         >
           <div className="w-6 h-6">{icon}</div>
