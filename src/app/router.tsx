@@ -29,6 +29,7 @@ import AndonPageThree from "@features/andon/page-three/AndonPageThree";
 import { LoginAdmin } from "@features/auth-admin/login-admin-view";
 import { AdminLayout } from "@features/admin/layout-admin/admin-layout-view";
 
+import { Monitoring } from "@features/admin/dashboard/monitoring/monitoring-view";
 // import ProductionPlanlayout from "@features/admin/ProductionPlan/layout/ProductionPlanLayout";
 // import ProductionPlanTable from "@features/admin/ProductionPlan/table/ProductionPlanTable";
 // import ProductionPlanForm from "@features/admin/ProductionPlan/form/ProductionPlanForm";
@@ -68,6 +69,22 @@ export default createBrowserRouter([
   {
     path: "admin",
     element: <AdminLayout />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Root />,
+        children: [
+          {
+            path: "general",
+            element: <></>,
+          },
+          {
+            path: "monitoring",
+            element: <Monitoring />,
+          },
+        ],
+      },
+    ],
   },
   {
     path: "login",

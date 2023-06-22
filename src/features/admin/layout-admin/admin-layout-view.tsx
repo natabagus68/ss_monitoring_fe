@@ -69,8 +69,8 @@ export const AdminLayout = () => {
                 label={`Dashboard`}
                 icon={<DashboardIcon className="w-[24px] h-[24px]" />}
               >
-                <NavItem label="general" />
-                <NavItem label="Monitoring" />
+                <NavItem label="general" to={"dashboard/general"} />
+                <NavItem label="Monitoring" to={"dashboard/monitoring"} />
               </NavItem>
               <NavItem
                 label="Scedule"
