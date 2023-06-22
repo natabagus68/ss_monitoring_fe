@@ -24,8 +24,11 @@ import AndonLayout from "@features/andon/layout/AndonLayout";
 import { Children } from "react";
 import AndonPageOne from "@features/andon/page-one/AndonPageOne";
 import AndonPageTwo from "@features/andon/page-two/AndonPageTwo";
+
+import AndonPageThree from "@features/andon/page-three/AndonPageThree";
 import { LoginAdmin } from "@features/auth-admin/login-admin-view";
 import { AdminLayout } from "@features/admin/layout-admin/admin-layout-view";
+
 import { Monitoring } from "@features/admin/dashboard/monitoring/monitoring-view";
 // import ProductionPlanlayout from "@features/admin/ProductionPlan/layout/ProductionPlanLayout";
 // import ProductionPlanTable from "@features/admin/ProductionPlan/table/ProductionPlanTable";
@@ -98,6 +101,10 @@ export default createBrowserRouter([
       {
         path: "page-two",
         element: <AndonPageTwo />,
+      },
+      {
+        path: "page-three",
+        element: <AndonPageThree />,
       },
     ],
   },
