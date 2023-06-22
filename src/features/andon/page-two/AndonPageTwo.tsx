@@ -72,7 +72,7 @@ export default function AndonPageTwo() {
         <h1 className="text-white font-bold text-[32px]">Waiting Material</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        g{
+        {
           remark.length <= MAX_LENGTH ?
           <h1 className="text-white font-bold text-[32px]">{remark}</h1>
           :
@@ -104,7 +104,7 @@ export default function AndonPageTwo() {
 
       {/* column 5 */}
       
-
+        {/* Operator */}
       <div className='border-2 py-2 flex justify-center items-center'>
         <h1 className="text-white font-bold text-[32px]">Aziz, Yuzi</h1>
       </div>
@@ -115,7 +115,7 @@ export default function AndonPageTwo() {
       <div className='border-2 bg-[#646566] py-2 flex justify-center items-center'>
         <span className='font-bold text-4xl text-[#FAB005]'>Setter</span>
       </div>
-
+        {/* Setter */}
       <div className='border-2 py-2 flex justify-center items-center'>
         <h1 className="text-white font-bold text-[32px]">Lutfi</h1>
       </div>
@@ -137,10 +137,10 @@ export default function AndonPageTwo() {
       </div>
 
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">00:02:00</h1>
+        <h1 className="text-white font-bold text-[32px]">20</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">Waiting Material</h1>
+        <h1 className="text-white font-bold text-[32px]">Starch</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
         {
@@ -151,15 +151,15 @@ export default function AndonPageTwo() {
         }
       </div>
 
-
+        {/* Staff */}
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">00:02:00</h1>
+        <h1 className="text-white font-bold text-[32px]">Agung</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">00:02:00</h1>
+        <h1 className="text-white font-bold text-[32px]">5</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">Waiting Material</h1>
+        <h1 className="text-white font-bold text-[32px]">Visual</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
         {
@@ -179,10 +179,10 @@ export default function AndonPageTwo() {
       </div>
 
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">00:02:00</h1>
+        <h1 className="text-white font-bold text-[32px]">10</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">Waiting Material</h1>
+        <h1 className="text-white font-bold text-[32px]">Strach</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
         {
@@ -193,15 +193,15 @@ export default function AndonPageTwo() {
         }
       </div>
 
-
+        {/* QC */}
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">00:02:00</h1>
+        <h1 className="text-white font-bold text-[32px]">Yudistira</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">00:02:00</h1>
+        <h1 className="text-white font-bold text-[32px]">31</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
-        <h1 className="text-white font-bold text-[32px]">Waiting Material</h1>
+        <h1 className="text-white font-bold text-[32px]">Stratch</h1>
       </div>
       <div className='border-2 py-2 flex justify-center items-center'>
         {

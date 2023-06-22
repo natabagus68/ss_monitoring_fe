@@ -24,6 +24,7 @@ import AndonLayout from "@features/andon/layout/AndonLayout";
 import { Children } from "react";
 import AndonPageOne from "@features/andon/page-one/AndonPageOne";
 import AndonPageTwo from "@features/andon/page-two/AndonPageTwo";
+import AndonPageThree from "@features/andon/page-three/AndonPageThree";
 // import ProductionPlanlayout from "@features/admin/ProductionPlan/layout/ProductionPlanLayout";
 // import ProductionPlanTable from "@features/admin/ProductionPlan/table/ProductionPlanTable";
 // import ProductionPlanForm from "@features/admin/ProductionPlan/form/ProductionPlanForm";
@@ -70,6 +71,10 @@ export default createBrowserRouter([
       {
         path: "page-two",
         element: <AndonPageTwo />,
+      },
+      {
+        path: "page-three",
+        element: <AndonPageThree />,
       },
     ],
   },
