@@ -1,17 +1,23 @@
 export default function EyeShowIcon({ color = "black", ...props }) {
   return (
-  <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="13"
-        fill="none"
-        viewBox="0 0 20 13"
-        {...props}
-      >
-        <path
-          fill="#fff"
-          d="M10 4a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm0 6.667a4.167 4.167 0 110-8.334 4.167 4.167 0 010 8.334zM10 .25C5.833.25 2.275 2.842.833 6.5c1.442 3.658 5 6.25 9.167 6.25s7.725-2.592 9.167-6.25C17.725 2.842 14.167.25 10 .25z"
-        ></path>
-      </svg>
-    );
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+      />
+    </svg>
+  );
 }

@@ -24,6 +24,7 @@ import AndonLayout from "@features/andon/layout/AndonLayout";
 import { Children } from "react";
 import AndonPageOne from "@features/andon/page-one/AndonPageOne";
 import AndonPageTwo from "@features/andon/page-two/AndonPageTwo";
+import { LoginAdmin } from "@features/auth-admin/login-admin-view";
 // import ProductionPlanlayout from "@features/admin/ProductionPlan/layout/ProductionPlanLayout";
 // import ProductionPlanTable from "@features/admin/ProductionPlan/table/ProductionPlanTable";
 // import ProductionPlanForm from "@features/admin/ProductionPlan/form/ProductionPlanForm";
@@ -54,6 +55,10 @@ export default createBrowserRouter([
   {
     path: "",
     element: <Navigate to="../menu" />,
+  },
+  {
+    path: "login-admin",
+    element: <LoginAdmin />,
   },
   {
     path: "login",
