@@ -1,5 +1,9 @@
 import { Breadcrumbs } from "@common/components";
+import PaginationNew from "@common/components/PaginationNew";
+import RowPerPage from "@common/components/RowPerPage";
+import StatusCard from "@common/components/StatusCard";
 import UpDownIcon from "@common/components/icons-new/UpDownIcon";
+import Pagination from "@common/components/pagination/Pagination";
 
 export const Monitoring = () => {
   return (
@@ -73,16 +77,117 @@ export const Monitoring = () => {
           </div>
         </div>
 
-        <table className="w-full rounded-md border border-gray-300 mt-4">
-          <thead>
-            <tr className="border-b border-gray-300">
-              <th className="py-2 text-center flex gap-2">
-                Status
-                <UpDownIcon className="w-5 h-5" />
-              </th>
-            </tr>
-          </thead>
-        </table>
+        <div className="border border-gray-300 w-full rounded-md py-2">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-300 ">
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Status
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Part No
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Line No
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Target Daily
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Target hourly
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Status
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    Actual
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB] text-[#667085]">
+                    NG part
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-300 ">
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    <StatusCard input="active" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    Part No
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    Line No
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    Target Daily
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    Target hourly
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    Status
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    Actual
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+                <td>
+                  <div className="py-2 text-center flex gap-2 px-5 items-center bg-[#FAFAFB]">
+                    NG part
+                    <UpDownIcon className="w-5 h-5" />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="w-full mt-6 flex justify-between">
+          <RowPerPage />
+          <PaginationNew />
+        </div>
       </main>
     </>
   );
