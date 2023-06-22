@@ -1,29 +1,29 @@
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { Error404 } from "../common/components";
 import LoginView from "@features/auth/login-view";
-import MenuLayout from "@features/admin/HMI/menu/menu-layout";
-import ProductionPlanView from "@features/admin/HMI/ProductionPlan/TodayTask";
-import ScheduleDetail from "@features/admin/HMI/ProductionPlan/task/table/schedule/ScheduleDetail";
-import ScheduleForm from "@features/admin/HMI/ProductionPlan/task/schedule/ScheduleForm";
-import EquipmentDetail from "@features/admin/HMI/ProductionPlan/task/table/equipment/EquipmentDetail";
-import ManpowerDetail from "@features/admin/HMI/ProductionPlan/task/table/manpower/ManpowerDetail";
-import WorkOrderSelection from "@features/admin/HMI/ProductionPlan/WorkOrderSelection";
-import AdditionalMaterial from "@features/admin/HMI/AdditionalMaterial/table/AdditionalMaterial";
-import AdditionalMaterialForm from "@features/admin/HMI/AdditionalMaterial/form/AdditionalMaterialForm";
-import ProductionProblem from "@features/admin/HMI/ProductionProblem/table/ProductionProblem";
-import ProductionProblemForm from "@features/admin/HMI/ProductionProblem/form/ProductionProblemForm";
-import MethodView from "@features/admin/HMI/list4M1E/method/view/MethodView";
-import MethodLog from "@features/admin/HMI/list4M1E/method/log/MethodLog";
-import MaterialView from "@features/admin/HMI/list4M1E/material/MaterialView";
-import EquipmentView from "@features/admin/HMI/list4M1E/equipment/view/EquipmentView";
-import ChangeEquipment from "@features/admin/HMI/list4M1E/equipment/change/ChangeEquipment";
-import ManpowerView from "@features/admin/HMI/list4M1E/manpower/view/ManpowerView";
-import ManpowerChange from "@features/admin/HMI/list4M1E/manpower/change/ManpowerChange";
-import LayoutView from "@features/admin/HMI/list4M1E/layout/LayoutView";
-import AndonLayout from "@features/admin/andon/layout/AndonLayout";
+import MenuLayout from "@features/HMI/menu/menu-layout";
+import ProductionPlanView from "@features/HMI/ProductionPlan/TodayTask";
+import ScheduleDetail from "@features/HMI/ProductionPlan/task/table/schedule/ScheduleDetail";
+import ScheduleForm from "@features/HMI/ProductionPlan/task/schedule/ScheduleForm";
+import EquipmentDetail from "@features/HMI/ProductionPlan/task/table/equipment/EquipmentDetail";
+import ManpowerDetail from "@features/HMI/ProductionPlan/task/table/manpower/ManpowerDetail";
+import WorkOrderSelection from "@features/HMI/ProductionPlan/WorkOrderSelection";
+import AdditionalMaterial from "@features/HMI/AdditionalMaterial/table/AdditionalMaterial";
+import AdditionalMaterialForm from "@features/HMI/AdditionalMaterial/form/AdditionalMaterialForm";
+import ProductionProblem from "@features/HMI/ProductionProblem/table/ProductionProblem";
+import ProductionProblemForm from "@features/HMI/ProductionProblem/form/ProductionProblemForm";
+import MethodView from "@features/HMI/list4M1E/method/view/MethodView";
+import MethodLog from "@features/HMI/list4M1E/method/log/MethodLog";
+import MaterialView from "@features/HMI/list4M1E/material/MaterialView";
+import EquipmentView from "@features/HMI/list4M1E/equipment/view/EquipmentView";
+import ChangeEquipment from "@features/HMI/list4M1E/equipment/change/ChangeEquipment";
+import ManpowerView from "@features/HMI/list4M1E/manpower/view/ManpowerView";
+import ManpowerChange from "@features/HMI/list4M1E/manpower/change/ManpowerChange";
+import LayoutView from "@features/HMI/list4M1E/layout/LayoutView";
+import AndonLayout from "@features/andon/layout/AndonLayout";
 import { Children } from "react";
-import AndonPageOne from "@features/admin/andon/page-one/AndonPageOne";
-import AndonPageTwo from "@features/admin/andon/page-two/AndonPageTwo";
+import AndonPageOne from "@features/andon/page-one/AndonPageOne";
+import AndonPageTwo from "@features/andon/page-two/AndonPageTwo";
 // import ProductionPlanlayout from "@features/admin/ProductionPlan/layout/ProductionPlanLayout";
 // import ProductionPlanTable from "@features/admin/ProductionPlan/table/ProductionPlanTable";
 // import ProductionPlanForm from "@features/admin/ProductionPlan/form/ProductionPlanForm";
@@ -46,7 +46,6 @@ import AndonPageTwo from "@features/admin/andon/page-two/AndonPageTwo";
 // import ManpowerChange from "@features/admin/list4M1E/manpower/change/ManpowerChange";
 // import LayoutView from "@features/admin/list4M1E/layout/LayoutView";
 
-
 const Root = () => {
   return <Outlet />;
 };
@@ -61,18 +60,18 @@ export default createBrowserRouter([
     element: <LoginView />,
   },
   {
-    path : 'andon',
-    element : <AndonLayout/>,
-    children : [
+    path: "andon",
+    element: <AndonLayout />,
+    children: [
       {
-        path : 'page-one',
-        element : <AndonPageOne/>
+        path: "page-one",
+        element: <AndonPageOne />,
       },
       {
-        path : 'page-two',
-        element : <AndonPageTwo/>
-      }
-    ]
+        path: "page-two",
+        element: <AndonPageTwo />,
+      },
+    ],
   },
   {
     path: "menu",
@@ -84,149 +83,149 @@ export default createBrowserRouter([
       },
       {
         path: "today-task",
-        element: <Root/>,
-        children : [
+        element: <Root />,
+        children: [
           {
-            path : "",
-            element: <ProductionPlanView/>,
+            path: "",
+            element: <ProductionPlanView />,
           },
           {
-            path : "schedule",
-            element: <Root/>,
-            children : [
+            path: "schedule",
+            element: <Root />,
+            children: [
               {
-                path : "",
-                element : <ScheduleDetail/>
+                path: "",
+                element: <ScheduleDetail />,
               },
               {
-                path : 'input-schedule',
-                element : <ScheduleForm />
-              }
-            ]
+                path: "input-schedule",
+                element: <ScheduleForm />,
+              },
+            ],
           },
           {
-            path : "equipment",
-            element: <EquipmentDetail/>,
-            children : [
+            path: "equipment",
+            element: <EquipmentDetail />,
+            children: [
               {
-                path : "",
-                element : <EquipmentDetail/>,
+                path: "",
+                element: <EquipmentDetail />,
               },
               {
-                path : "input-equipment",
-                element : <Root/>,
-              }
-            ]
+                path: "input-equipment",
+                element: <Root />,
+              },
+            ],
           },
           {
-            path : "manpower",
-            element: <Root/>,
-            children : [
+            path: "manpower",
+            element: <Root />,
+            children: [
               {
-                path : "",
-                element : <ManpowerDetail/>,
+                path: "",
+                element: <ManpowerDetail />,
               },
               {
-                path : "input-equipment",
-                element : <Root/>,
-              }
-            ]
-          }
-        ]
+                path: "input-equipment",
+                element: <Root />,
+              },
+            ],
+          },
+        ],
       },
       {
         path: "work-order-selection",
-        element: <WorkOrderSelection/>
+        element: <WorkOrderSelection />,
       },
       {
         path: "additional-material",
         element: <Root />,
-        children : [
+        children: [
           {
-            path : "",
-            element : <AdditionalMaterial/>
+            path: "",
+            element: <AdditionalMaterial />,
           },
           {
-            path : 'input',
-            element : <AdditionalMaterialForm/>
-          }
-        ]
+            path: "input",
+            element: <AdditionalMaterialForm />,
+          },
+        ],
       },
       {
         path: "production-problem",
         element: <Root />,
-        children : [
+        children: [
           {
-            path : "",
-            element : <ProductionProblem/>
+            path: "",
+            element: <ProductionProblem />,
           },
           {
-            path : 'input',
-            element : <ProductionProblemForm/>
-          }
-        ]
+            path: "input",
+            element: <ProductionProblemForm />,
+          },
+        ],
       },
       {
-        path : 'method',
-        element : <Root/>,
-        children : [
+        path: "method",
+        element: <Root />,
+        children: [
           {
-            path : '',
-            element : <MethodView/>
+            path: "",
+            element: <MethodView />,
           },
           {
-            path : 'log',
-            element : <MethodLog/>
-          }
-        ]
+            path: "log",
+            element: <MethodLog />,
+          },
+        ],
       },
       {
-        path : 'material',
-        element : <Root/>,
-        children : [
+        path: "material",
+        element: <Root />,
+        children: [
           {
-            path : '',
-            element : <MaterialView/>
+            path: "",
+            element: <MaterialView />,
           },
-        ]
+        ],
       },
       {
-        path : 'equipment',
-        element : <Root/>,
-        children : [
+        path: "equipment",
+        element: <Root />,
+        children: [
           {
-            path : '',
-            element : <EquipmentView/>
+            path: "",
+            element: <EquipmentView />,
           },
           {
-            path : 'change',
-            element : <ChangeEquipment/>
-          }
-        ]
+            path: "change",
+            element: <ChangeEquipment />,
+          },
+        ],
       },
       {
-        path : 'manpower',
-        element : <Root/>,
-        children : [
+        path: "manpower",
+        element: <Root />,
+        children: [
           {
-            path : '',
-            element : <ManpowerView/>
+            path: "",
+            element: <ManpowerView />,
           },
           {
-            path : 'change',
-            element : <ManpowerChange/>
-          }
-        ]
+            path: "change",
+            element: <ManpowerChange />,
+          },
+        ],
       },
       {
-        path : 'layout',
-        element : <Root/>,
-        children : [
+        path: "layout",
+        element: <Root />,
+        children: [
           {
-            path : '',
-            element : <LayoutView/>
+            path: "",
+            element: <LayoutView />,
           },
-        ]
+        ],
       },
     ],
   },
