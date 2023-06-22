@@ -6,10 +6,13 @@ export default function useLogin() {
   //input password
   const [isPasswordShow, setIsPasswordShow] = useState(false);
 
+  const [error, setError] = useState(false)
+
   //input password
-  const onPasswordShow = (): void => {
-    setIsPasswordShow(!!!isPasswordShow);
+  const onPasswordShow = () : void => {
+    setIsPasswordShow(!isPasswordShow);
   };
+
 
   //button login
   const onSubmitLogin = async (e): Promise<void> => {
@@ -20,8 +23,10 @@ export default function useLogin() {
         "web-admin",
         JSON.stringify({ token: "token-12345678" })
       );
-      navigate("../admin/dashboard");
+      setError(false)
+      navigate("../menu/");
     } catch (error) {
+      setError(true)
       console.log(error);
     }
   };
@@ -29,5 +34,6 @@ export default function useLogin() {
     isPasswordShow,
     onPasswordShow,
     onSubmitLogin,
+    error
   };
 }

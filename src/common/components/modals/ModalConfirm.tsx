@@ -1,12 +1,16 @@
 import Modal from "./Modal";
 import LoadingIcon from "../icons-new/LoadingIcon";
 import { useState, useEffect } from "react";
+import AlertIcon from "../icons-new/AlertIcon";
 
 export default function ModalConfirm({
   open = false,
-  setOpen,
-  setOpenSuccess,
-  cb,
+  setOpen = null,
+  setOpenSuccess = null,
+  onSave = null,
+  onCancel = null,
+  title = null,
+  message = null
 }) {
   const [isLoading, setIsLoading] = useState({
     loading: false,
@@ -18,34 +22,24 @@ export default function ModalConfirm({
       setOpen(false);
       setTimeout(() => {
         setOpenSuccess(true);
-      }, 100);
+      }, 300);
     }
   }, [isLoading.loading, isLoading.exec]);
   return (
     <Modal open={open}>
-      <div className="w-[430px] flex flex-col gap-8 items-center">
-        <div className="flex items-center justify-center w-[150px] h-[150px] bg-[#20519F] rounded-full border-[8px] border-[#E9EEF5]">
-          <span className="text-[90px] font-bold text-white">!</span>
-        </div>
+      <div className="w-[450px] flex flex-col gap-8 items-center">
+  
+        <AlertIcon />
         <div className="flex items-center flex-col">
-          <span className="text-[#2D2A2A] text-[24px] font-semibold">
-            Konfirmasi
+          <span className="text-[#2D2A2A] text-[30px] font-bold">
+          {title}
           </span>
-          <span>Apakah data yang dimasukkan sudah benar?</span>
+          <span className="text-[#514E4E]">{message}</span>
         </div>
 
         <div className="flex w-full items-end gap-4">
-          <button
-            className="flex items-center justify-center flex-1 gap-2 h-[46px] px-[20px] border border-[#B8B6B6] rounded text-[#514E4E] text-sm font-semibold"
-            onClick={() => {
-              setOpen(false);
-              setIsLoading({ loading: false, exec: false });
-            }}
-          >
-            Batal
-          </button>
-          {isLoading.loading ? (
-            <button className="flex items-center justify-center flex-1 gap-2 h-[46px] px-[20px] bg-[#20519F] rounded text-white text-sm font-semibold">
+        {isLoading.loading ? (
+            <button className="flex items-center justify-center flex-1 gap-2 h-[46px] px-[20px] bg-[#229BD8] rounded text-white text-sm font-semibold">
               <LoadingIcon
                 color="white"
                 className="w-[24px] h-[24px] animate-spin"
@@ -53,10 +47,10 @@ export default function ModalConfirm({
             </button>
           ) : (
             <button
-              className="flex items-center justify-center flex-1 gap-2 h-[46px] px-[20px] bg-[#20519F] rounded text-white text-sm font-semibold"
+              className="flex items-center justify-center flex-1 gap-2 h-[46px] px-[20px] bg-[#229BD8] rounded text-white text-xl font-semibold"
               onClick={() => {
                 setIsLoading({ loading: true, exec: true });
-                cb(setIsLoading);
+                onSave();
                 // setOpen(false);
                 // setTimeout(() => {
                 //   setOpenSuccess(true);
@@ -64,9 +58,19 @@ export default function ModalConfirm({
                 // }, 100);
               }}
             >
-              <span>Ya, Konfirmasi</span>
+              <span>Yes, Confirm</span>
             </button>
           )}
+          <button
+            className="flex items-center justify-center flex-1 gap-2 h-[46px] px-[20px] border border-[#B8B6B6] rounded text-[#514E4E] text-xl font-semibold"
+            onClick={() => {
+              onCancel();
+              setIsLoading({ loading: false, exec: false });
+            }}
+          >
+            Cancel
+          </button>
+          
         </div>
       </div>
     </Modal>

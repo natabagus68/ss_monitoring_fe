@@ -1,18 +1,51 @@
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { Error404 } from "../common/components";
 import LoginView from "@features/auth/login-view";
-import GeneralView from "@features/admin/dashboard/general/general-view";
-import AdminLayout from "@features/admin/admin-layout/admin-layout";
-import RealTimeView from "@features/admin/dashboard/real-time/real-time-view";
-import DetailsView from "@features/admin/dashboard/details/details-view";
-import TraceabilityView from "@features/admin/traceability/traceability-view";
-import TraceabilityDetail from "@features/admin/traceability/traceability-detail";
-import ManpowerView from "@features/admin/master-data/manpower/manpower-view";
-import ManpowerDetails from "@features/admin/master-data/manpower/manpower-details";
-import ManpowerForm from "@features/admin/master-data/manpower/manpower-form";
-import MesinView from "@features/admin/master-data/mesin/mesin-view";
-import MesinDetails from "@features/admin/master-data/mesin/mesin-details";
-import MesinForm from "@features/admin/master-data/mesin/mesin-form";
+import MenuLayout from "@features/admin/HMI/menu/menu-layout";
+import ProductionPlanView from "@features/admin/HMI/ProductionPlan/TodayTask";
+import ScheduleDetail from "@features/admin/HMI/ProductionPlan/task/table/schedule/ScheduleDetail";
+import ScheduleForm from "@features/admin/HMI/ProductionPlan/task/schedule/ScheduleForm";
+import EquipmentDetail from "@features/admin/HMI/ProductionPlan/task/table/equipment/EquipmentDetail";
+import ManpowerDetail from "@features/admin/HMI/ProductionPlan/task/table/manpower/ManpowerDetail";
+import WorkOrderSelection from "@features/admin/HMI/ProductionPlan/WorkOrderSelection";
+import AdditionalMaterial from "@features/admin/HMI/AdditionalMaterial/table/AdditionalMaterial";
+import AdditionalMaterialForm from "@features/admin/HMI/AdditionalMaterial/form/AdditionalMaterialForm";
+import ProductionProblem from "@features/admin/HMI/ProductionProblem/table/ProductionProblem";
+import ProductionProblemForm from "@features/admin/HMI/ProductionProblem/form/ProductionProblemForm";
+import MethodView from "@features/admin/HMI/list4M1E/method/view/MethodView";
+import MethodLog from "@features/admin/HMI/list4M1E/method/log/MethodLog";
+import MaterialView from "@features/admin/HMI/list4M1E/material/MaterialView";
+import EquipmentView from "@features/admin/HMI/list4M1E/equipment/view/EquipmentView";
+import ChangeEquipment from "@features/admin/HMI/list4M1E/equipment/change/ChangeEquipment";
+import ManpowerView from "@features/admin/HMI/list4M1E/manpower/view/ManpowerView";
+import ManpowerChange from "@features/admin/HMI/list4M1E/manpower/change/ManpowerChange";
+import LayoutView from "@features/admin/HMI/list4M1E/layout/LayoutView";
+import AndonLayout from "@features/admin/andon/layout/AndonLayout";
+import { Children } from "react";
+import AndonPageOne from "@features/admin/andon/page-one/AndonPageOne";
+import AndonPageTwo from "@features/admin/andon/page-two/AndonPageTwo";
+// import ProductionPlanlayout from "@features/admin/ProductionPlan/layout/ProductionPlanLayout";
+// import ProductionPlanTable from "@features/admin/ProductionPlan/table/ProductionPlanTable";
+// import ProductionPlanForm from "@features/admin/ProductionPlan/form/ProductionPlanForm";
+// import ProductionPlanView from "@features/admin/ProductionPlan/TodayTask";
+// import WorkOrderSelection from "@features/admin/ProductionPlan/WorkOrderSelection";
+// import ScheduleDetail from "@features/admin/ProductionPlan/task/table/schedule/ScheduleDetail";
+// import EquipmentDetail from "@features/admin/ProductionPlan/task/table/equipment/EquipmentDetail";
+// import ManpowerDetail from "@features/admin/ProductionPlan/task/table/manpower/ManpowerDetail";
+// import ScheduleForm from "@features/admin/ProductionPlan/task/schedule/ScheduleForm";
+// import AdditionalMaterial from "@features/admin/AdditionalMaterial/table/AdditionalMaterial";
+// import AdditionalMaterialForm from "@features/admin/AdditionalMaterial/form/AdditionalMaterialForm";
+// import ProductionProblem from "@features/admin/ProductionProblem/table/ProductionProblem";
+// import ProductionProblemForm from "@features/admin/ProductionProblem/form/ProductionProblemForm";
+// import MethodView from "@features/admin/list4M1E/method/view/MethodView";
+// import MethodLog from "@features/admin/list4M1E/method/log/MethodLog";
+// import MaterialView from "@features/admin/list4M1E/material/MaterialView";
+// import EquipmentView from "@features/admin/list4M1E/equipment/view/EquipmentView";
+// import ChangeEquipment from "@features/admin/list4M1E/equipment/change/ChangeEquipment";
+// import ManpowerView from "@features/admin/list4M1E/manpower/view/ManpowerView";
+// import ManpowerChange from "@features/admin/list4M1E/manpower/change/ManpowerChange";
+// import LayoutView from "@features/admin/list4M1E/layout/LayoutView";
+
 
 const Root = () => {
   return <Outlet />;
@@ -21,91 +54,179 @@ const Root = () => {
 export default createBrowserRouter([
   {
     path: "",
-    element: <Navigate to="../admin" />,
+    element: <Navigate to="../menu" />,
   },
   {
     path: "login",
     element: <LoginView />,
   },
   {
-    path: "admin",
-    element: <AdminLayout />,
+    path : 'andon',
+    element : <AndonLayout/>,
+    children : [
+      {
+        path : 'page-one',
+        element : <AndonPageOne/>
+      },
+      {
+        path : 'page-two',
+        element : <AndonPageTwo/>
+      }
+    ]
+  },
+  {
+    path: "menu",
+    element: <Root />,
     children: [
       {
-        path: "traceability",
-        element: <Root />,
-        children: [
-          {
-            path: "",
-            element: <TraceabilityView />,
-          },
-          {
-            path: "detail",
-            element: <TraceabilityDetail />,
-          },
-        ],
+        path: "",
+        element: <MenuLayout />,
       },
       {
-        path: "dashboard",
-        element: <Root />,
-        children: [
+        path: "today-task",
+        element: <Root/>,
+        children : [
           {
-            path: "general",
-            element: <GeneralView />,
+            path : "",
+            element: <ProductionPlanView/>,
           },
           {
-            path: "details",
-            element: <DetailsView />,
+            path : "schedule",
+            element: <Root/>,
+            children : [
+              {
+                path : "",
+                element : <ScheduleDetail/>
+              },
+              {
+                path : 'input-schedule',
+                element : <ScheduleForm />
+              }
+            ]
           },
           {
-            path: "real-time",
-            element: <RealTimeView />,
+            path : "equipment",
+            element: <EquipmentDetail/>,
+            children : [
+              {
+                path : "",
+                element : <EquipmentDetail/>,
+              },
+              {
+                path : "input-equipment",
+                element : <Root/>,
+              }
+            ]
           },
-        ],
+          {
+            path : "manpower",
+            element: <Root/>,
+            children : [
+              {
+                path : "",
+                element : <ManpowerDetail/>,
+              },
+              {
+                path : "input-equipment",
+                element : <Root/>,
+              }
+            ]
+          }
+        ]
       },
       {
-        path: "master-data/:type/manpower",
-        element: <Root />,
-        children: [
-          {
-            path: "",
-            element: <ManpowerView />,
-          },
-          {
-            path: "details",
-            element: <ManpowerDetails />,
-          },
-          {
-            path: "create",
-            element: <ManpowerForm />,
-          },
-          {
-            path: "edit",
-            element: <ManpowerForm />,
-          },
-        ],
+        path: "work-order-selection",
+        element: <WorkOrderSelection/>
       },
       {
-        path: "master-data/:type/mesin",
+        path: "additional-material",
         element: <Root />,
-        children: [
+        children : [
           {
-            path: "",
-            element: <MesinView />,
+            path : "",
+            element : <AdditionalMaterial/>
           },
           {
-            path: "details",
-            element: <MesinDetails />,
+            path : 'input',
+            element : <AdditionalMaterialForm/>
+          }
+        ]
+      },
+      {
+        path: "production-problem",
+        element: <Root />,
+        children : [
+          {
+            path : "",
+            element : <ProductionProblem/>
           },
           {
-            path: "create",
-            element: <MesinForm />,
+            path : 'input',
+            element : <ProductionProblemForm/>
+          }
+        ]
+      },
+      {
+        path : 'method',
+        element : <Root/>,
+        children : [
+          {
+            path : '',
+            element : <MethodView/>
           },
           {
-            path: "edit",
-            element: <MesinForm />,
+            path : 'log',
+            element : <MethodLog/>
+          }
+        ]
+      },
+      {
+        path : 'material',
+        element : <Root/>,
+        children : [
+          {
+            path : '',
+            element : <MaterialView/>
           },
-        ],
+        ]
+      },
+      {
+        path : 'equipment',
+        element : <Root/>,
+        children : [
+          {
+            path : '',
+            element : <EquipmentView/>
+          },
+          {
+            path : 'change',
+            element : <ChangeEquipment/>
+          }
+        ]
+      },
+      {
+        path : 'manpower',
+        element : <Root/>,
+        children : [
+          {
+            path : '',
+            element : <ManpowerView/>
+          },
+          {
+            path : 'change',
+            element : <ManpowerChange/>
+          }
+        ]
+      },
+      {
+        path : 'layout',
+        element : <Root/>,
+        children : [
+          {
+            path : '',
+            element : <LayoutView/>
+          },
+        ]
       },
     ],
   },

@@ -1,36 +1,16 @@
 export default function LockIcon({...props}) {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
+  <svg
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      width="18"
+      height="12"
+      fill="none"
+      viewBox="0 0 18 12"
     >
       <path
-        d="M16.4235 9.44804V7.30104C16.4235 4.78804 14.3855 2.75004 11.8725 2.75004C9.35949 2.73904 7.31349 4.76704 7.30249 7.28104V7.30104V9.44804"
-        stroke="#6E7079"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M15.6832 21.25H8.04224C5.94824 21.25 4.25024 19.553 4.25024 17.458V13.169C4.25024 11.074 5.94824 9.37695 8.04224 9.37695H15.6832C17.7772 9.37695 19.4752 11.074 19.4752 13.169V17.458C19.4752 19.553 17.7772 21.25 15.6832 21.25Z"
-        stroke="#6E7079"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M11.863 14.2031V16.4241"
-        stroke="#6E7079"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+        fill="#fff"
+        d="M16.5 11.25H12v-3H9.99c-.855 1.815-2.7 3-4.74 3A5.256 5.256 0 010 6 5.256 5.256 0 015.25.75a5.254 5.254 0 014.74 3H18v4.5h-1.5v3zm-3-1.5H15v-3h1.5v-1.5H8.955l-.172-.503A3.754 3.754 0 005.25 2.25C3.18 2.25 1.5 3.93 1.5 6c0 2.07 1.68 3.75 3.75 3.75a3.754 3.754 0 003.533-2.497l.172-.503H13.5v3zm-8.25-1.5A2.257 2.257 0 013 6a2.257 2.257 0 012.25-2.25A2.257 2.257 0 017.5 6a2.257 2.257 0 01-2.25 2.25zm0-3A.752.752 0 004.5 6c0 .412.338.75.75.75S6 6.412 6 6a.752.752 0 00-.75-.75z"
+      ></path>
+    </svg>   
   );
 }
