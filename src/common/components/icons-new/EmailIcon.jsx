@@ -1,16 +1,18 @@
-export default function EmailIcon({...props}) {
+export default function EmailIcon({ ...props }) {
   return (
-     <svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="15"
       fill="none"
-      viewBox="0 0 20 15"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
     >
       <path
-        fill="#fff"
-        d="M18.333.416A.839.839 0 0119 .749c.04.055.053.079 0 0 .108.144.167.32.167.5-.003-.063 0-.044 0 0v12.5c0 .46-.373.834-.834.834H1.667a.833.833 0 01-.834-.834V1.25a.835.835 0 01.834-.833h16.666zm-.833 2.5l-7 5.25a.833.833 0 01-.908.06l-.092-.06-7-5.25v10h15v-10zM4.167 2.083L10 6.458l5.833-4.375H4.167z"
-      ></path>
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+      />
     </svg>
   );
 }
