@@ -9,7 +9,7 @@ export const Monitoring = () => {
   return (
     <>
       <Breadcrumbs items={["Monitoring"]} />
-      <main className="mt-8 border border-gray-300 rounded-md p-8 w-full">
+      <main className="mt-8 border border-gray-300 rounded-md p-8 w-full overflow-x-scroll md:overflow-">
         <div>
           <h1 className="text-[#313030] text-2xl font-bold">Monitoring</h1>
           <p className="text-[#667085] text-md">Monitoring Transaction Data</p>
@@ -77,7 +77,7 @@ export const Monitoring = () => {
           </div>
         </div>
 
-        <div className="border border-gray-300 w-full rounded-md py-2">
+        <div className="border border-gray-300 w-full rounded-md py-2 ">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-300 ">
